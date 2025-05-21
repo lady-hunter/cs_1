@@ -55,8 +55,8 @@ public class Chat_Item extends javax.swing.JLayeredPane {
     public void setImage(boolean right, Icon... images){
         JLayeredPane layer = new JLayeredPane();
         layer.setLayout(new FlowLayout(right?FlowLayout.RIGHT:FlowLayout.LEFT));
-        layer.setBorder(new EmptyBorder(0, 5, 10, 5));
-        Chat_Image chatImage = new Chat_Image();
+        layer.setBorder(new EmptyBorder(0, 5, 0, 5));
+        Chat_Image chatImage = new Chat_Image(right);
         chatImage.addImage(images);
         layer.add(chatImage);
         add(layer);
@@ -72,6 +72,10 @@ public class Chat_Item extends javax.swing.JLayeredPane {
         if(label != null){
             label.setIcon(new ImageIcon(getClass().getResource("/com/appchat/icon/double_tick.png")));
         }
+    }
+    
+    public void hideText(){
+        txt.setVisible(false);
     }
     
     @SuppressWarnings("unchecked")

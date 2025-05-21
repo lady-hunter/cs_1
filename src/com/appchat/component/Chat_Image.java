@@ -11,9 +11,9 @@ import net.miginfocom.swing.MigLayout;
 public class Chat_Image extends javax.swing.JLayeredPane {
 
 
-    public Chat_Image() {
+    public Chat_Image(boolean right) {
         initComponents();
-        setLayout(new MigLayout());
+        setLayout(new MigLayout("", "0[" + (right ? "right" : "left" ) +"]0", "3[]3"));
     }
 
     public void addImage(Icon... images){

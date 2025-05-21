@@ -21,7 +21,11 @@ public class Chat_Left_With_Profile extends javax.swing.JLayeredPane {
         Iaimage.setImage(image);
     }
     public void setText(String text){
-        txt.setText(text);
+        if(text.equals("")){
+            txt.hideText();
+        } else {
+            txt.setText(text);
+        }
 
     }
     
@@ -54,8 +58,8 @@ public class Chat_Left_With_Profile extends javax.swing.JLayeredPane {
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(Iaimage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(Iaimage, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

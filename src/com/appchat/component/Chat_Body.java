@@ -42,7 +42,8 @@ public class Chat_Body extends javax.swing.JPanel {
         addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet", new ImageIcon(getClass().getResource("/com/appchat/images/cat.jpg")));
         addItemRight("hello");
         addItemRight("hello");
-        addItemLeft("", "", new ImageIcon(getClass().getResource("/com/appchat/images/aobing.jpg")));
+        addItemLeft("", "kiet", new ImageIcon(getClass().getResource("/com/appchat/images/aobing.jpg")));
+        addItemRight("", new ImageIcon(getClass().getResource("/com/appchat/images/aobing.jpg")));
 
         
     }
@@ -54,19 +55,20 @@ public class Chat_Body extends javax.swing.JPanel {
     }
     
     public void addItemLeft(String text, String user, Icon... image){
-        Chat_Left_With_Profile item = new Chat_Left_With_Profile();
+        Chat_Left item = new Chat_Left();
         item.setText(text);
         item.setImage(image);
         item.setTime();
-        item.setUserProfile(user);
+        //item.setUserProfile(user);
         body.add(item,"wrap, w 100::80%");
         body.repaint();
         body.revalidate();
     }
     
-    public void addItemRight(String text){
+    public void addItemRight(String text,  Icon... image){
         Chat_Right item = new Chat_Right();
         item.setText(text);
+        item.setImage(image);
         body.add(item,"wrap,al right, w 100::80%");
         body.repaint();
         body.revalidate();
