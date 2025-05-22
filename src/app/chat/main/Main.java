@@ -1,25 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package app.chat.main;
 
+import com.appchat.event.EventImageView;
+import com.appchat.event.PublicEvent;
 import com.appchat.swing.ComponentResizer;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
-/**
- *
- * @author NGUYEN ANH KIET
- */
+
 public class Main extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Main
-     */
+    
     public Main() {
         initComponents();
         init();
@@ -32,9 +27,29 @@ public class Main extends javax.swing.JFrame {
         com.setMinimumSize(new Dimension(800, 500));
         com.setMaximumSize(Toolkit.getDefaultToolkit().getScreenSize());
         com.setSnapSize(new Dimension(10, 10));
+        view_Image.setVisible(false);
+        home.setVisible(true);
+        initEvent();
     }
 
-    
+    private void initEvent(){
+        PublicEvent.getInstance().addEventImageView(new EventImageView() {
+            @Override
+            public void viewImage(Icon image) {
+                view_Image.viewImage(image);
+            }
+
+            @Override
+            public void saveImage(Icon image) {
+
+                System.out.println("save image next update");
+            }
+            
+            
+        }); 
+            
+        
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -45,7 +60,8 @@ public class Main extends javax.swing.JFrame {
         cmdMinimize = new javax.swing.JButton();
         cmdClose = new javax.swing.JButton();
         body = new javax.swing.JLayeredPane();
-        home1 = new com.appchat.form.Home();
+        view_Image = new com.appchat.form.View_Image();
+        home = new com.appchat.form.Home();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,8 +110,10 @@ public class Main extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
         );
 
-        body.setLayout(new java.awt.BorderLayout());
-        body.add(home1, java.awt.BorderLayout.CENTER);
+        body.setLayout(new java.awt.CardLayout());
+        body.setLayer(view_Image, javax.swing.JLayeredPane.POPUP_LAYER);
+        body.add(view_Image, "card3");
+        body.add(home, "card2");
 
         javax.swing.GroupLayout backgroundLayout = new javax.swing.GroupLayout(background);
         background.setLayout(backgroundLayout);
@@ -112,7 +130,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(backgroundLayout.createSequentialGroup()
                 .addComponent(title, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(body, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
+                .addComponent(body, javax.swing.GroupLayout.PREFERRED_SIZE, 460, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -191,7 +209,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel border;
     private javax.swing.JButton cmdClose;
     private javax.swing.JButton cmdMinimize;
-    private com.appchat.form.Home home1;
+    private com.appchat.form.Home home;
     private javax.swing.JPanel title;
+    private com.appchat.form.View_Image view_Image;
     // End of variables declaration//GEN-END:variables
 }
