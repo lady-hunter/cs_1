@@ -24,7 +24,7 @@ public class Main extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/com/appchat/icon/logo7.png")).getImage());
         ComponentResizer com = new ComponentResizer();
         com.registerComponent(this);
-        com.setMinimumSize(new Dimension(800, 500));
+        com.setMinimumSize(new Dimension(900, 600));
         com.setMaximumSize(Toolkit.getDefaultToolkit().getScreenSize());
         com.setSnapSize(new Dimension(10, 10));
         view_Image.setVisible(false);

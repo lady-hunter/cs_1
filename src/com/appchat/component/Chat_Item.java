@@ -52,13 +52,33 @@ public class Chat_Item extends javax.swing.JLayeredPane {
         
     }
     
-    public void setImage(boolean right, Icon... images){
+    public void setImage(boolean right, Icon... image){
         JLayeredPane layer = new JLayeredPane();
         layer.setLayout(new FlowLayout(right?FlowLayout.RIGHT:FlowLayout.LEFT));
         layer.setBorder(new EmptyBorder(0, 5, 0, 5));
         Chat_Image chatImage = new Chat_Image(right);
-        chatImage.addImage(images);
+        chatImage.addImage(image);
         layer.add(chatImage);
+        add(layer);
+    }
+    
+    public void setImage(boolean right, String... image){
+        JLayeredPane layer = new JLayeredPane();
+        layer.setLayout(new FlowLayout(right?FlowLayout.RIGHT:FlowLayout.LEFT));
+        layer.setBorder(new EmptyBorder(0, 5, 0, 5));
+        Chat_Image chatImage = new Chat_Image(right);
+        chatImage.addImage(image);
+        layer.add(chatImage);
+        add(layer);
+    }
+    
+    public void setFile(String fileNName, String fileSize){
+        JLayeredPane layer = new JLayeredPane();
+        layer.setLayout(new FlowLayout(FlowLayout.LEFT));
+        layer.setBorder(new EmptyBorder(0, 5, 0, 5));
+        Chat_File chatFile = new Chat_File();
+        chatFile.setFile(fileNName, fileSize);
+        layer.add(chatFile);
         add(layer);
     }
     

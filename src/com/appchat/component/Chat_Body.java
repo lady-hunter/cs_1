@@ -39,12 +39,15 @@ public class Chat_Body extends javax.swing.JPanel {
         addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
         addItemRight("hello");
         addDate("Today");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet", new ImageIcon(getClass().getResource("/com/appchat/images/cat.jpg")));
-        addItemRight("hello");
+        addItemLeft("", "kiet", new ImageIcon(getClass().getResource("/com/appchat/images/cat.jpg")));
+        String img[] = {"LHJ7:x?H_4D%#TDi^,oMIpRj-oVs"};
+        addItemLeft("","Duy", img);
+        addItemRight("hello" );
         addItemRight("hello");
         addItemLeft("", "kiet", new ImageIcon(getClass().getResource("/com/appchat/images/aobing.jpg")));
         addItemRight("", new ImageIcon(getClass().getResource("/com/appchat/images/aobing.jpg")));
-
+        addItemFile("hmmm", "kiet", "java", "203 MB");
+        addItemFileRight("","app chat", "100 MB");
         
     }
 
@@ -55,20 +58,49 @@ public class Chat_Body extends javax.swing.JPanel {
     }
     
     public void addItemLeft(String text, String user, Icon... image){
-        Chat_Left item = new Chat_Left();
+        Chat_Left_With_Profile item = new Chat_Left_With_Profile();
         item.setText(text);
         item.setImage(image);
         item.setTime();
-        //item.setUserProfile(user);
+        item.setUserProfile(user);
         body.add(item,"wrap, w 100::80%");
         body.repaint();
         body.revalidate();
     }
-    
+
+    public void addItemLeft(String text, String user, String[] image){
+        Chat_Left_With_Profile item = new Chat_Left_With_Profile();
+        item.setText(text);
+        item.setImage(image);
+        item.setTime();
+        item.setUserProfile(user);
+        body.add(item,"wrap, w 100::80%");
+        body.repaint();
+        body.revalidate();
+    }
+    public void addItemFile(String text, String user, String fileName, String fileSize){
+        Chat_Left_With_Profile item = new Chat_Left_With_Profile();
+        item.setText(text);
+        item.setFile(fileName, fileSize);
+        item.setTime();
+        item.setUserProfile(user);
+        body.add(item,"wrap, w 100::80%");
+        body.repaint();
+        body.revalidate();
+    }
+
     public void addItemRight(String text,  Icon... image){
         Chat_Right item = new Chat_Right();
         item.setText(text);
         item.setImage(image);
+        body.add(item,"wrap,al right, w 100::80%");
+        body.repaint();
+        body.revalidate();
+    }
+    
+    public void addItemFileRight(String text, String fileName, String fileSize){
+        Chat_Right item = new Chat_Right();
+        item.setFile(fileName, fileSize);
         body.add(item,"wrap,al right, w 100::80%");
         body.repaint();
         body.revalidate();
