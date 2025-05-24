@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Netbean/App_Chat/src/com/appchat/component/Image_Item.java</file>
-            <file>file:/E:/Netbean/App_Chat/src/com/appchat/swing/ProgressCircleUI.java</file>
-            <file>file:/E:/Netbean/App_Chat/src/com/appchat/component/Chat_Image.java</file>
-            <file>file:/E:/Netbean/App_Chat/src/com/appchat/component/Chat_File.java</file>
-            <file>file:/E:/Netbean/App_Chat/src/com/appchat/component/Chat_Left_With_Profile.java</file>
-            <file>file:/E:/Netbean/App_Chat/src/com/appchat/component/Chat_Item.java</file>
             <file>file:/E:/Netbean/App_Chat/src/com/appchat/component/Chat_Body.java</file>
+            <file>file:/E:/Netbean/App_Chat/src/com/appchat/event/EventChat.java</file>
+            <file>file:/E:/Netbean/App_Chat/src/com/appchat/event/PublicEvent.java</file>
+            <file>file:/E:/Netbean/App_Chat/src/com/appchat/event/EventImageView.java</file>
+            <file>file:/E:/Netbean/App_Chat/src/com/appchat/component/Chat_Item.java</file>
+            <file>file:/E:/Netbean/App_Chat/src/com/appchat/swing/JIMSendTextPane.java</file>
+            <file>file:/E:/Netbean/App_Chat/src/com/appchat/component/Chat_Bottom.java</file>
         </group>
     </open-files>
 </project-private>

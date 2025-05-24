@@ -2,9 +2,11 @@
 package com.appchat.component;
 
 import com.appchat.swing.ScrollBar;
+import java.awt.Adjustable;
 import java.awt.Color;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JScrollBar;
 import net.miginfocom.swing.MigLayout;
 
@@ -14,40 +16,40 @@ public class Chat_Body extends javax.swing.JPanel {
     public Chat_Body() {
         initComponents();
         init();
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addItemRight("hello");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addDate("20/05/2025");
-        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
-        addItemRight("hello");
-        addDate("Today");
-        addItemLeft("", "kiet", new ImageIcon(getClass().getResource("/com/appchat/images/cat.jpg")));
-        String img[] = {"LHJ7:x?H_4D%#TDi^,oMIpRj-oVs"};
-        addItemLeft("","Duy", img);
-        addItemRight("hello" );
-        addItemRight("hello");
-        addItemLeft("", "kiet", new ImageIcon(getClass().getResource("/com/appchat/images/aobing.jpg")));
-        addItemRight("", new ImageIcon(getClass().getResource("/com/appchat/images/aobing.jpg")));
-        addItemFile("hmmm", "kiet", "java", "203 MB");
-        addItemFileRight("","app chat", "100 MB");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+         addItemRight("hello");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addItemRight("hello");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addDate("20/05/2025");
+//        addItemLeft("public class Chat_avax.s win g .JP ane l", "kiet");
+//        addItemRight("hello");
+//        addDate("Today");
+//        addItemLeft("", "kiet", new ImageIcon(getClass().getResource("/com/appchat/images/cat.jpg")));
+//        String img[] = {"LHJ7:x?H_4D%#TDi^,oMIpRj-oVs"};
+//        addItemLeft("","Duy", img);
+//        addItemRight("hello" );
+//        addItemRight("hello");
+//        addItemLeft("", "kiet", new ImageIcon(getClass().getResource("/com/appchat/images/aobing.jpg")));
+//          addItemRight("", new ImageIcon(getClass().getResource("/com/appchat/images/aobing.jpg")));
+//        addItemFile("hmmm", "kiet", "java", "203 MB");
+//        addItemFileRight("","app chat", "100 MB");
         
     }
 
@@ -66,6 +68,9 @@ public class Chat_Body extends javax.swing.JPanel {
         body.add(item,"wrap, w 100::80%");
         body.repaint();
         body.revalidate();
+        scrollToBottom();
+        
+    
     }
 
     public void addItemLeft(String text, String user, String[] image){
@@ -152,7 +157,18 @@ public class Chat_Body extends javax.swing.JPanel {
             .addComponent(sp)
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    private void scrollToBottom() {
+        JScrollBar verticalBar = sp.getVerticalScrollBar();
+        AdjustmentListener downScroller = new AdjustmentListener() {
+            @Override
+            public void adjustmentValueChanged(AdjustmentEvent e) {
+                Adjustable adjustable = e.getAdjustable();
+                adjustable.setValue(adjustable.getMaximum());
+                verticalBar.removeAdjustmentListener(this);
+            }
+        };
+        verticalBar.addAdjustmentListener(downScroller);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel body;
