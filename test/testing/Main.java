@@ -26,7 +26,7 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pictureBox1 = new com.appchat.swing.PictureBox();
+        pictureBox1 = new com.doan.swing.PictureBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +88,6 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.appchat.swing.PictureBox pictureBox1;
+    private com.doan.swing.PictureBox pictureBox1;
     // End of variables declaration//GEN-END:variables
 }

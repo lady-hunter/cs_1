@@ -1,7 +1,7 @@
 
 package testing;
 
-import com.appchat.swing.blurHash.BlurHash;
+import com.doan.swing.blurHash.BlurHash;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import javax.imageio.ImageIO;
